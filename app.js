@@ -19,17 +19,21 @@ const fromEuroToDollar = function(valueInEuro) {
 }
 
 const fromDollarToYen = function(valueInDollar) {
-    // Convertimos el valor a dólares
-    let valueInYen = valueInDollar * oneEuroIs.JPY;
-    // Retornamos el valor en dólares
+    //convertir euros
+    let valueInEuros = valueInDollar / oneEuroIs.USD;
+    // Convertimos el valor a yenes
+    let valueInYen = valueInEuros * oneEuroIs.JPY;
+    // Retornamos el valor en yenes
     return valueInYen;
-}
 
+}
 const fromYenToPound = function(valueInYen) {
-    // Convertimos el valor a dólares
-    let valueInPound = valueInYen * oneEuroIs.GBP;
-    // Retornamos el valor en dólares
+    let jpyToGBP = oneEuroIs.GBP / oneEuroIs.JPY;
+    // Convertimos el valor a british pound
+    let valueInPound = valueInYen * jpyToGBP;
+    // Retornamos el valor en british pound
     return valueInPound;
+
 }
 // Exporta la función para usarla en otros archivos 
 // (similar a la palabra clave "export" cuando se usa webpack)
